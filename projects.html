@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sujal Timalsina | Projects</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/favicon.png" type="image/png">
+</head>
+<body>
+<div class="container">
+
+    <header class="site-header">
+        <img src="images/logo.png" alt="Logo" class="site-logo">
+        <div class="site-title">
+            <h1>Sujal Timalsina</h1>
+            <p>Primarily driven by machines of all kinds; Occasionally builds software for fun.</p>
+        </div>
+    </header>
+
+    <nav id="full-nav">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="projects.html" class="active">Projects</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </nav>
+
+    <nav id="collapsed-nav">
+        <div class="collapsed-nav-content">
+            <!-- Will be filled by JavaScript -->
+        </div>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    </nav>
+
+    <div class="main">
+
+        <aside>
+            <h3>Quick Links</h3>
+            <ul>
+                <li><a href="#college-overview">College Projects</a>
+                    <ul>
+                        <li><a href="#first-semester">First Semester</a></li>
+                        <li><a href="#second-rc">Second Semester</a></li>
+                        <li><a href="#third-chess">Third Semester</a></li>
+                        <li><a href="#fourth-huffman">Fourth Semester</a></li>
+                        <li><a href="#fifth-squareone">Fifth Semester</a></li>
+                        <li><a href="#sixth-minor">Sixth Semester</a></li>
+                    </ul>
+                </li>
+                <li><a href="#personal-overview">Personal Projects</a>
+                    <ul>
+                        <li><a href="#ludo">Ludo Rush</a></li>
+                        <li><a href="#chess-bot">Chess Bot</a></li>
+                        <li><a href="#localmesh">LocalMesh</a></li>
+                    </ul>
+                </li>
+                <li><a href="#working-on">Currently Working On..</a></li>
+            </ul>
+        </aside>
+
+        <section class="content">
+
+            <div class="box overview-box" id="college-overview">
+                <h2>📚 College Projects</h2>
+                <p>
+                    During my time in college, I've worked on a variety of academic and personal projects 
+                    that helped me deepen my understanding of computer science. Our College syllabus included
+                    different languages in different semesters like C, C++, Fortran and Assembly. The course 
+                    also included electronic systems, microprossessors, data structures, algorithms, 
+                    databases, and web development. We worked on multiple projects every
+                    semester. Some of the key areas I explored include:
+                </p>
+                <ul>
+                    <li>Developing simple applications using C and C++</li>
+                    <li>Creating hardware systems using Arduino and sensors</li>
+                    <li>Working with Data Structures and different general Algorithms</li>
+                    <li>Working with Graphics: Using maths to draw things</li>
+                    <li>Implementing machine learning models</li>
+                </ul>
+            </div>
+
+            <div class="box" id="first-semester">
+                <h3>🗺️ First Semester: Games and Utilities</h3>
+                <p>
+                    A collection of small C programs: a KBC-style game, a number guessing game, a basic calculator, 
+                    a dice, and a stopwatch, all running inside the console of TURBO C++.
+                </p>
+                <!-- Read More Button -->
+                <a href="javascript:void(0);" class="read-more-btn" onclick="toggleReadMore(this)">Read more</a>
+                <div class="more-content">
+                    <p>
+                        For this subject C Programming, students were asked to make a team of 4 members. Some friendly lads
+                        made their teams quickly and started working on their projects, and I was one of those waiting for 
+		      teammates to be assigned randomly. During the gap, I was working on that KBC-style game,
+                        and after team got assigned, I presented this idea to create an old school console app that could be
+                        controlled only by keyboard lol.
+                    </p>
+                    <p>
+                        There were two main reasons for why Turbo C++ was chosen. The first reason was that our college was
+                        still teaching programming in Turbo C++ in classes as well as labs in 2020s, and I didn't want to make things
+                        in something they didn't teach (What you sow, shall you reap haha). And secondly, I didn't want
+                        to explore different libraries for creating windows and User Interfaces. The Turbo C++ console was
+                        a good enough UI that could be handled by functions like clrscr() so I didn't think much and went for it 
+                        to save time.
+                    </p>
+                </div>
+                <br><a href="projects/firstsem/index.html">View Project</a>
+            </div>
+
+            <div class="box" id="second-rc">
+                <h3>⚙️ Second Semester: RC Car</h3>
+                <p>Built a Remote Controlled Car using Arduino, Motor driver and Bluetooth Module. Learned about motor drivers and PWM.</p>
+                <a href="projects/secondsem/index.html">View Project</a>
+            </div>
+
+            <div class="box" id="second-hammer">
+                <h3>📊 Second Semester: Hammer and Dustpan</h3>
+                <p>Hammer and Dustpan were made with metals like Iron, Aluminium, and Tin in Mechanical Workshop in second semester 
+		for 50-marks subject Workshop Technology.</p>
+                <a href="projects/secondsem/workshop.html">Details</a>
+            </div>
+
+            <div class="box" id="third-chess">
+                <h3>♟️ Third Semester: Two player Chess</h3>
+                <p>This was a project for the subject Object Oriented Programming using C++. As usual this was also a group project, 
+                    so alongside me was my friend Sujan Bhattarai contributing heavily in this project. A Chess game for two players taking 
+                    turn on each move, with move validation and a simple interface designed using Raylib.</p>
+                <a href="projects/thirdsem/chess.html">Demo</a>
+            </div>
+
+            <div class="box" id="fourth-huffman">
+                <h3>🗜️ Fourth Semester: File compression using Huffman Algorithm</h3>
+                <p>Implemented Huffman encoding in Python to compress and decompress text files. Learned about priority queues and bit manipulation.
+                    For this project, I was mostly a spectator as this project was a 4‑membered project and I was busy in my own zone exploring other
+                    aspects of life, lol.</p>
+                <p>Since I can't take credit of what I didn't create, I restarted the project and built everything from scratch for this website.</p>
+                <a href="projects/fourthsem/index.html">Details</a>
+            </div>
+
+            <div class="box" id="fifth-squareone">
+                <h3>🧩 Fifth Semester: SquareOne</h3>
+                <p>This was a Software Engineering project, so we primarily focused on requirement analysis and case study. The prototype of the
+                    software product was simply generated using random tools available on the internet. The prototype was needed to explain the ideas only,
+                    so it wasn't the main requirement of our mentor. We were allowed to reuse codes for presentation purposes. Also, we didn't have the time to 
+                    write code ourselves even if we wanted to, because we were busy with computer graphics project.</p>
+                <a href="projects/fifthsem/square1.html">Details</a>
+            </div>
+
+            <div class="box" id="fifth-solar">
+                <h3>🌌 Fifth Semester: Explore Solar System</h3>
+                <p>Interactive 3D visualization of the solar system using raylib (OpenGL). Planets orbit at relative speeds; the user can experience the 
+                    system as if they are in a spaceship. So, it is a 3D solar system exploration with First Person Perspective.</p>
+                <a href="projects/fifthsem/solar.html">View Project</a>
+            </div>
+
+            <div class="box" id="sixth-minor">
+                <h3>🩺 Sixth Semester: Minor Project</h3>
+                <p>Diagnosis of Disease using AIML: A web app that predicts diseases from symptoms using Random Forest, and skin diseases from images using a CNN.</p>
+
+                <a href="projects/minorproject/index.html">View Project</a>
+            </div>
+	
+
+            <hr class="section-divider">
+
+            <!-- PERSONAL PROJECTS SECTION -->
+
+            <div class="box overview-box" id="personal-overview">
+                <h2>💻 Personal Projects</h2>
+                <p>
+                    Outside of coursework, I enjoy tinkering with ideas that interest me. 
+                    These projects are often experimental and cover areas like game development, 
+                    automation, and web tools.
+                </p>
+            </div>
+
+            <div class="box" id="ludo">
+                <h3>🎲 Ludo Rush</h3>
+                <p>A fast‑paced Ludo variant with power‑ups. This was the variant of Ludo that
+                    I liked the most and it felt very lame that it requires Facebook logins to play. This motivated me to create this game 
+                    for people so that they don't have to log in from Facebook and wait for minutes just to play.</p>
+                <p>Some features are still in progress, so this game is currently unavailable.</p>
+                <a href="projects/personal/ludo.html">Play Game</a>
+            </div>
+
+            <div class="box" id="chess-bot">
+                <h3>🤖 Chess Bot</h3>
+                <p>A chess engine with a simple Algorithm. Are you better than the first chess bot that I created?</p>
+                <a href="projects/personal/chess.html">Play Game</a>
+            </div>
+
+            <div class="box" id="localmesh">
+                <h3>🛜 LocalMesh</h3>
+                <!--
+                <p>A simple application for file sharing with Apple or Android without needing internet connection or Bluetooth (BT 
+		            being very slow). Written in Python.</p>
+                -->
+                <p>Under Reconstruction..😭.</p>
+                <a href="projects/personal/localmesh.html">Click for Details</a>
+            </div>
+
+            <hr class="section-divider">
+
+            <div class="box current-box" id="working-on">
+                <h2>⏳ Currently working on..</h2>
+                <ul>
+                    <li><strong>This Website lol</strong> – Although the primary focus is to keep this website as simple as possible, I am looking for ways to improve its appearance without using frameworks.</li>
+                    <li><strong>A Hardware project</strong> – I don't want to reveal it now, hehe!</li>
+                    <li><strong>Sneaky Mouse</strong> – An automated cursor that moves in a human‑like way. Can be used for automating tasks or game that doesn't allow automation. This project is for educational purposes only. This is a test project to know how effective bot detections are in popular games.</li>
+                    <li><strong>College project: Diagnosis of Disease using AIML</strong> – Using Random Forest for text‑based symptom analysis and CNN for skin disease classification.</li>
+                </ul>
+            </div>
+
+        </section>
+    </div>
+
+    <footer>
+        <div class="social-icons">
+            <a href="https://facebook.com/tmcna.sujal" target="_blank">
+                <img src="images/facebook.png" alt="Facebook">
+            </a>
+            <a href="https://github.com/awesomesuz" target="_blank">
+                <img src="images/github.png" alt="GitHub">
+            </a>
+            <a href="mailto:sujaltmcna@gmail.com">
+                <img src="images/gmail.png" alt="Gmail">
+            </a>
+        </div>
+
+        <div class="footer-links">
+            <a href="about.html">•About</a>
+            <a href="privacy.html">•Privacy Policy</a>
+            <a href="colleagues.html">•Colleagues</a>
+            <a href="contacts.html">•Contacts</a>
+        </div>
+
+        <div class="copyright">
+            © 2026 Sujal Timalsina
+        </div>
+    </footer>
+</div>
+
+<script src="js/main.js"></script>
+</body>
+</html>
