@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sujal Timalsina | Contact</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal Timalsina | Contact</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
@@ -18,6 +18,7 @@
         </div>
     </header>
 
+    <!-- Full navigation – visible on desktop -->
     <nav id="full-nav">
         <ul>
             <li><a href="index.html">Home</a></li>
@@ -25,15 +26,20 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
+    </nav>
+
+    <!-- Collapsed navigation – visible on mobile -->
+    <nav id="collapsed-nav">
+        <span class="current-page">Contact</span>
         <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
     </nav>
 
-    <nav id="collapsed-nav" style="display: none;">
-        <div class="collapsed-nav-content">
-            <a href="contact.html" class="active">Contact</a>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
-    </nav>
+    <!-- Mobile drawer -->
+    <div id="mobile-drawer">
+        <a href="index.html">Home</a>
+        <a href="projects.html">Projects</a>
+        <a href="about.html">About</a>
+    </div>
 
     <div class="main">
         <aside>
@@ -58,15 +64,15 @@
 
             <div class="box" id="email">
                 <h2>Email</h2>
-                <p>sujaltmcna@gmail.com</p>
+                <p><a href="mailto:sujaltmcna@gmail.com">sujaltmcna@gmail.com</a></p>
                 <p>You can email me directly for any inquiries or just to connect.</p>
             </div>
 
             <div class="box" id="online-profiles">
                 <h2>Online Profiles</h2>
                 <ul>
-                    <li><strong>Facebook:</strong> <a href="https://facebook.com/tmcna.sujal" target="_blank">facebook.com/tmcna.sujal</a></li>
-                    <li><strong>Github:</strong> <a href="https://github.com/awesomesuz" target="_blank">github.com/awesomesuz</a></li>
+                    <li><strong>Facebook:</strong> <a href="https://facebook.com/tmcna.sujal" target="_blank">@tmcna.sujal</a></li>
+                    <li><strong>Github:</strong> <a href="https://github.com/awesomesuz" target="_blank">@awesomesuz</a></li>
                     <li><strong>LinkedIn:</strong> Coming soon.. 😉</li>
                 </ul>
             </div>

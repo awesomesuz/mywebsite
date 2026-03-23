@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Sujal Timalsina | Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sujal Timalsina | Home</title>
     <link rel="stylesheet" href="css/style.css">
     <link rel="icon" href="images/favicon.png" type="image/png">
 </head>
@@ -20,6 +20,7 @@
         </div>
     </header>
 
+    <!-- Full navigation – visible on desktop -->
     <nav id="full-nav">
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
@@ -27,16 +28,19 @@
             <li><a href="about.html">About</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
     </nav>
 
-    <!-- This is the collapsed nav that replaces the full nav -->
-    <nav id="collapsed-nav" style="display: none;">
-        <div class="collapsed-nav-content">
-            <a href="index.html" class="active">Home</a>
-        </div>
-        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>
+    <nav id="collapsed-nav">
+        <span class="current-page">Home</span>
+        <button class="nav-toggle" aria-label="Toggle navigation">☰</button>       
     </nav>
+
+    <!-- Implemented this as a separate part -->
+    <div id="mobile-drawer">
+            <a href="projects.html">Projects</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+    </div>
 
     <div class="main">
         <aside>
@@ -51,7 +55,6 @@
         </aside>
 
         <section class="content">
-
             <div class="box overview-box" id="welcome">
                 <h2>✨ Welcome</h2>
                 <p>
@@ -105,10 +108,10 @@
                 <ul>
                     <li><strong>Languages:</strong> C, C++, Py, HTML, CSS, JS, PHP, MySQL, Assembly</li>
                     <li><strong>Editors & IDEs:</strong> VS Code, Android Studio, Arduino IDE</li>
-                    <li><strong>Hardware:</strong> Arduino, ensors, basic electronics components</li>
+                    <li><strong>Hardware:</strong> Arduino, sensors, basic electronics components</li>
                     <li><strong>Graphics / Game Dev:</strong> Raylib, OpenGL, WinBGI, basic computer graphics</li>
                     <li><strong>Version Control:</strong> Git, GitHub</li>
-                    <li><strong>Other:</strong> basic Linux command, video editing softwares, and all sorts of tech related stuffs</li>
+                    <li><strong>Other:</strong> basic Linux stuffs, video editing, and all sorts of tech related stuff</li>
                 </ul>
             </div>
 
@@ -145,7 +148,7 @@
             <a href="about.html">•About</a>
             <a href="privacy.html">•Privacy Policy</a>
             <a href="colleagues.html">•Colleagues</a>
-            <a href="contacts.html">•Contacts</a>
+            <a href="contact.html">•Contacts</a>
         </div>
 
         <div class="copyright">

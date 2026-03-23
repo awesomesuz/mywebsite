@@ -1,97 +1,66 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const fullNav = document.getElementById('full-nav');
-    const collapsedNav = document.getElementById('collapsed-nav');
-    const fullNavButton = fullNav.querySelector('.nav-toggle');
-    const collapsedNavButton = collapsedNav.querySelector('.nav-toggle');
-    
-    if (!fullNav || !collapsedNav) return;
-    
-    // Copy active link
-    const activeLink = document.querySelector('#full-nav a.active');
-    if (activeLink && collapsedNav.querySelector('.collapsed-nav-content')) {
-        collapsedNav.querySelector('.collapsed-nav-content').innerHTML = activeLink.outerHTML;
-    }
-    
-    // Toggle function
-    function toggleNav() {
-        if (fullNav.style.display !== 'none') {
-            // Switching from full nav to collapsed nav
-            fullNav.style.display = 'none';
-            collapsedNav.style.display = 'block';
-        } else {
-            // Switching from collapsed nav to full nav
-            collapsedNav.style.display = 'none';
-            fullNav.style.display = 'block';
+    // --- Mobile drawer toggle with height animation ---
+    const toggleBtn = document.querySelector('#collapsed-nav .nav-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+
+    const boxes = document.querySelectorAll('.box');
+    const aside = document.querySelector('aside');
+
+    if (toggleBtn && drawer) {
+        // drawer height here
+        const EXPANDED_HEIGHT = '180px';
+
+        function openDrawer() {
+            drawer.style.display = 'grid';
+            void drawer.offsetHeight;               // force reflow
+            drawer.style.maxHeight = EXPANDED_HEIGHT;
+
+            // Add blur to boxes and aside
+            boxes.forEach(box => box.classList.add('box-blur'));
+            if (aside) aside.classList.add('box-blur');
+
+            // Disable clicks on aside
+            if (aside) aside.classList.add('aside-disabled');
         }
-    }
-    
-    // Add click event to buttons
-    if (collapsedNavButton) {
-        collapsedNavButton.addEventListener('click', toggleNav);
-    }
-    if (fullNavButton) {
-        fullNavButton.addEventListener('click', toggleNav);
-    }
-    
-    // Auto-switch when scrolling
-    let hasAutoSwitched = false;
-    let ticking = false;
-    
-    function checkNavPosition() {
-        if (window.innerWidth >= 790) return;
-        if (hasAutoSwitched) return;
-        if (collapsedNav.style.display === 'block') return;
-        
-        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-        
-        // Get nav position
-        const navRect = fullNav.getBoundingClientRect();
-        const distanceFromTop = navRect.top; // Distance from viewport top
-        
-        // Toggle when nav is 10px or less from top
-        if (distanceFromTop <= 10) {
-            fullNav.style.display = 'none';
-            collapsedNav.style.display = 'block';
-            hasAutoSwitched = true;
-            
-            // Show button on full-nav for future toggles
-            fullNavButton.style.display = 'block';
+
+        function closeDrawer() {
+            if (drawer.style.display !== 'grid') return;
+
+            drawer.style.maxHeight = '0';
+
+            // Remove blur
+            boxes.forEach(box => box.classList.remove('box-blur'));
+            if (aside) aside.classList.remove('box-blur');
+
+            // Re-enable clicks on aside
+            if (aside) aside.classList.remove('aside-disabled');
+
+            drawer.addEventListener('transitionend', function onEnd() {
+                if (drawer.style.maxHeight === '0px') {
+                    drawer.style.display = 'none';
+                }
+                drawer.removeEventListener('transitionend', onEnd);
+            }, { once: true });
         }
+
+        toggleBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (drawer.style.display === 'grid') {
+                closeDrawer();
+            } else {
+                openDrawer();
+            }
+        });
+
+        document.addEventListener('click', function(e) {
+            if (!toggleBtn.contains(e.target) && !drawer.contains(e.target)) {
+                closeDrawer();
+            }
+        });
     }
-    
-    // Scroll listener
-    window.addEventListener('scroll', function() {
-        if (!ticking) {
-            window.requestAnimationFrame(function() {
-                checkNavPosition();
-                ticking = false;
-            });
-            ticking = true;
-        }
-    }, { passive: true });
-    
-    // Handle resize
-    function handleResize() {
-        if (window.innerWidth >= 790) {
-            // Desktop
-            fullNav.style.display = 'block';
-            collapsedNav.style.display = 'none';
-            fullNavButton.style.display = 'none';
-            hasAutoSwitched = false;
-        } else {
-            // Mobile
-            fullNav.style.display = 'block';
-            collapsedNav.style.display = 'none';
-            fullNavButton.style.display = 'none'; // Keep hidden initially
-            hasAutoSwitched = false;
-            checkNavPosition();
-        }
-    }
-    
-    // Initial setup
-    handleResize();
-    window.addEventListener('resize', handleResize);
 });
+
+// --- Read-more toggle function ---
 
 function toggleReadMore(button) {
     const moreContent = button.nextElementSibling;

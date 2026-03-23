@@ -35,6 +35,7 @@ header {
     padding: 20px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 15;
 }
 
 .site-header {
@@ -47,6 +48,8 @@ header {
     width: 70px;
     height: auto;
     object-fit: contain;
+    filter: drop-shadow(1px 1px 0 #000)
+            drop-shadow(2px 2px 0 #000);
 }
 
 .site-title h1 {
@@ -55,7 +58,9 @@ header {
     font-weight: 600;
     margin: 0;
     letter-spacing: 0.5px;
-    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    text-shadow: 
+        1px 1px 0 #000,
+        2px 2px 0 #000;
 }
 
 header p {
@@ -63,6 +68,9 @@ header p {
     color: #ccdbe9;
     margin-top: 6px;
     font-weight: 300;
+    text-shadow: 
+        1px 1px 0 #000,
+        2px 2px 0 #000;
 }
 
 /* ===== NAV ===== */
@@ -71,7 +79,11 @@ nav {
     position: sticky;
     top: 0;
     z-index: 10;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+nav.no-shadow {
+    box-shadow: none !important;
 }
 
 #full-nav ul {
@@ -102,23 +114,12 @@ nav {
     color: #fff;
 }
 
-.nav-toggle {
-    position: absolute;
-    top: 0;
-    right: 25px;
-    height: 50px;
-    width: 50px;
-    background: #5f738b;
-    color: white;
-    border: none;
-    font-size: 20px;
-    cursor: pointer;
-    z-index: 11;
-    transition: background 0.2s;
+#collapsed-nav {
+    display: none;
 }
 
-.nav-toggle:hover {
-    background: #6f839b;
+#mobile-drawer {
+    display: none;
 }
 
 /* ===== ASIDE ===== */
@@ -247,7 +248,6 @@ section.content h2 {
     margin: 8px 0;
     cursor: pointer;
     color: #2c3e50;
-    text-decoration: underline;
 }
 
 /* ===== ABOUT IMAGE BOX ===== */
@@ -290,7 +290,7 @@ footer {
 
 /* Social icons container */
 footer .social-icons {
-    margin-bottom: 15px;
+    margin-bottom: 45px;
     opacity: 0.8;
 }
 
@@ -312,8 +312,8 @@ footer .social-icons img {
 
 /* Footer links (About, Privacy, etc.) */
 footer .footer-links {
-    margin-top: 15px;
-    margin-bottom: 0px;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 footer .footer-links a {
@@ -334,50 +334,161 @@ footer .copyright {
     color: lightgray;
 }
 
-/* ===== MOBILE ===== */
+.aside-disabled {
+    pointer-events: none;
+}
+
 @media (max-width: 768px) {
+    header {
+        border-bottom: 3px solid #4f6379;
+    }
+
+    #full-nav {
+        display: none;
+    }
+
+    #collapsed-nav {
+        display: grid;
+        grid-template-columns: 1fr;
+        background: #4f6379;
+        padding: 0 max(20px, min(100px, 6vw));
+    }
+    #collapsed-nav .current-page {
+        display: block;
+        padding: 14px 20px;
+        text-align: center;
+        background: #c8cdd3;
+        color: #222;
+        font-weight: bold;
+        border: 2px solid #2c3e50;
+        border-radius: 4px;
+    }
+
+    #collapsed-nav .nav-toggle {
+        position: absolute;
+        top: 1px;
+        right: calc(max(20px, min(100px, 6vw)) + 1px);
+        height: 55px;
+        width: 55px;
+        background: #466d9e;
+        color: white;
+        border: none;
+        border-radius: 2px;
+        font-size: 20px;
+        cursor: pointer;
+        z-index: 11;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.2), inset 0 1px 0 rgba(255,255,255,0.3);
+    }
+
+    #mobile-drawer {
+        display: none;
+        position: sticky;
+        top: 58px;
+        z-index: 1000;
+        background: transparent;
+        padding: 2px max(20px, min(100px, 6vw));
+        margin: 0;
+        overflow: hidden;
+        max-height: 0;
+        transition: max-height 0.5s ease-out;
+        grid-template-columns: 1fr;
+        gap: 2px;
+    }
+
+    #mobile-drawer a {
+        display: block;
+        padding: 14px 20px;
+        text-align: center;
+        background: #c8cdd3;
+        color: #222;
+        font-weight: bold;
+        border: 2px solid #2c3e50;
+        border-radius: 4px;
+        text-decoration: none;
+    }
+
+    aside {
+        display: block;
+        position: static;
+        width: calc(100% - 36px);
+        margin: -5px 20px -25px 20px;
+        background: #f0f0f0;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        height: auto;
+    }
+
+    aside h3 {
+        text-align: center;
+    }
+
+    aside ul {
+        padding-left: 7px;
+    }
+
     .main {
         flex-direction: column;
     }
 
+    /* Single box‑blur rule */
+    .box-blur {
+        filter: blur(4px);
+        transition: filter 0.3s ease;
+    }
+
+    footer .footer-links a {
+        margin: 0 10px;
+    }
+}
+
+@media (max-width: 480px) {
     aside {
-        display: none;
-    }
-
-    #full-nav ul {
-        grid-template-columns: 1fr;
-        padding: 0 25px;
-    }
-
-    #full-nav .nav-toggle {
-        display: none;
-    }
-
-    #collapsed-nav .nav-toggle {
         display: block;
+        position: static;
+        width: calc(100% - 40px);
+        margin: 10px 20px -30px 20px;
+        background: #f0f0f0;
+        border-right: none;
+        border-bottom: 1px solid #ddd;
+        height: auto;
     }
 
-    #collapsed-nav {
-        background: #444;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        display: none;
+    .main {
+        padding: 2px;
+    }
+}
+
+@media (max-width: 426px) {
+    .site-header {
+        display: grid;
+        grid-template-areas:
+            "title title"
+            "logo text";
+        grid-template-columns: auto 1fr;
+        gap: 10px;
+        align-items: center;
     }
 
-    #collapsed-nav .collapsed-nav-content {
-        padding: 0 25px;
+    .site-logo {
+        grid-area: logo;
+        margin-top: -100px;
+        justify-self: start;
     }
 
-    #collapsed-nav a {
-        display: block;
-        padding: 12px 20px;
-        color: #222;
-        text-decoration: none;
-        background: #c8cdd3;
-        font-weight: bold;
-        text-align: center;
-        width: 100%;
-        box-sizing: border-box;
+    .site-title {
+        grid-area: title;
+        text-align: left;
+    }
+
+    header p {
+        grid-area: text;
+        margin-top: 0;
+        text-align: left;
+        padding-left: 80px;
+        padding-top: 10px;
+    }
+
+    footer .footer-links a {
+        margin: 0 5px;
     }
 }
