@@ -1,0 +1,94 @@
+.project-main {
+    flex: 1;
+    background: #f8fafc;
+    color: #1e293b;
+    font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+    padding: 2rem;
+    overflow-y: auto;
+}
+
+.main-title {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.main-title h1 {
+    font-size: 2.5rem;
+    margin-bottom: 0.5rem;
+    color: #0f172a;
+}
+.tagline {
+    font-size: 1.2rem;
+    color: #475569;
+}
+
+.cta-section {
+    background: linear-gradient(135deg, #2c3e50 0%, #1e2a36 100%);
+    color: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+}
+.cta-section h2 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+}
+.cta-section p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+}
+.cta-button {
+    display: inline-block;
+    background-color: white;
+    color: #2c3e50;
+    text-decoration: none;
+    padding: 0.75rem 2rem;
+    border-radius: 9999px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+.cta-button:hover {
+    background-color: #f0f2f5;
+    transform: scale(1.02);
+}
+
+/* Simple box (replaces the three cards) */
+.simple-feature-box {
+    max-width: 720px;
+    margin: 0 auto 2rem auto;
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+}
+
+.simple-feature-box ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.simple-feature-box li {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    position: relative;
+    line-height: 1.5;
+    color: #1e293b;
+}
+
+.simple-feature-box li:last-child {
+    margin-bottom: 0;
+}
+
+.simple-feature-box li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.simple-feature-box strong {
+    color: #0f172a;
+}

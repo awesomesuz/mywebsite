@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: sans-serif;
+}
+
+.project-layout {
+    display: grid;
+    grid-template-columns: 240px 1fr;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.project-sidebar {
+    background-color: #4f6379;
+    color: #ecf0f1;
+    padding: 2rem 1rem;
+    overflow-y: auto;
+}
+
+.project-sidebar ul {
+    list-style: none;
+}
+
+.project-sidebar li {
+    margin: 1rem 0;
+}
+
+.project-sidebar a {
+    color: #ecf0f1;
+    text-decoration: none;
+    display: block;
+    padding: 0.5rem;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.project-sidebar a:hover {
+    background: #34495e;
+}
+
+.project-content {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+}
+
+.project-header {
+    background: #c8cdd3;
+    padding: 1rem 1.5rem;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.project-header h1 {
+    margin: 0;
+    font-size: 1.4rem;
+    flex: 1;
+    color: #222;
+}
+
+/* Menu toggle - hidden on desktop */
+.menu-toggle {
+    display: none;
+    width: 36px;
+    height: 36px;
+    border: none;
+    border-radius: 6px;
+    font-size: 1.4rem;
+    color: #fff;
+    background: #4f6379;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s, transform 0.3s ease;
+    line-height: 1;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.menu-toggle:hover {
+    background: #5d728b;
+}
+
+@media (max-width: 768px) {
+    .project-layout {
+        grid-template-columns: 1fr;
+        height: auto;
+        overflow: visible;
+    }
+
+    .project-header {
+        padding-left: 70px;
+    }
+
+    .menu-toggle {
+        display: flex;
+        position: fixed;
+        top: 0.7rem;
+        margin-left: 1rem;
+        z-index: 1002;
+    }
+
+    .project-layout.sidebar-open .menu-toggle {
+        transform: translateX(240px);
+    }
+
+    .project-sidebar {
+        position: fixed;
+        top: 0;
+        left: -280px;
+        width: 280px;
+        height: 100%;
+        z-index: 1000;
+        transition: left 0.3s ease;
+        box-shadow: none;
+    }
+
+    .project-sidebar.open {
+        left: 0;
+        box-shadow: 2px 0 12px rgba(0, 0, 0, 0.2);
+    }
+
+    .project-content {
+        overflow-y: visible;
+    }
+
+    .project-layout.sidebar-open .project-header,
+    .project-layout.sidebar-open .project-main {
+        filter: blur(4px);
+        transition: filter 0.3s ease;
+    }
+}
